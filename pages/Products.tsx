@@ -1,9 +1,11 @@
-
-import React from 'react';
+import React, { useState } from 'react';
 import AnimatedPage from '../components/AnimatedPage';
 import { motion } from 'framer-motion';
+import WhatsAppIcon from '../components/WhatsAppIcon';
+import EnquiryModal from '../components/EnquiryModal';
+import type { Product } from '../types';
 
-const productList = [
+const productList: Product[] = [
   { name: 'Classic Spiral Chakri', description: 'The original, timeless recipe. Perfectly seasoned and irresistibly crunchy.', price: '₹150', imageSeed: 'classic' },
   { name: 'Spicy Masala Chakri', description: 'A fiery twist on the classic, infused with a blend of exotic Indian spices.', price: '₹160', imageSeed: 'spicy' },
   { name: 'Methi (Fenugreek) Chakri', description: 'Aromatic and flavorful, with the subtle bitterness of fenugreek leaves.', price: '₹160', imageSeed: 'methi' },
@@ -13,6 +15,14 @@ const productList = [
 ];
 
 const Products: React.FC = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+
+  const handleEnquiryClick = (product: Product) => {
+    setSelectedProduct(product);
+    setIsModalOpen(true);
+  };
+
   return (
     <AnimatedPage>
       <div className="max-w-7xl mx-auto py-16">
@@ -24,36 +34,47 @@ const Products: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
-          {productList.map((product, index) => (
-            <motion.div
-              key={product.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group bg-white/40 backdrop-blur-md rounded-2xl overflow-hidden border border-white/30 shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col"
-            >
-              <div className="overflow-hidden">
-                <img 
-                  src={`https://picsum.photos/seed/${product.imageSeed}/600/400`} 
-                  alt={product.name} 
-                  className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-2xl font-serif font-semibold text-brand-text mb-2">{product.name}</h3>
-                <p className="text-brand-text-light text-sm mb-4 flex-grow">{product.description}</p>
-                <div className="flex justify-between items-center mt-auto">
-                  <span className="text-xl font-semibold text-brand-primary">{product.price} <span className="text-sm font-normal text-brand-text-light">/ 250g</span></span>
-                  <button className="px-5 py-2 bg-brand-primary text-white font-semibold rounded-full shadow-lg hover:bg-opacity-90 transition-colors duration-300 transform group-hover:scale-105">
-                    Add to Cart
-                  </button>
+          {productList.map((product, index) => {
+            return (
+              <motion.div
+                key={product.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="group bg-white/40 backdrop-blur-md rounded-2xl overflow-hidden border border-white/30 shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col"
+              >
+                <div className="overflow-hidden">
+                  <img 
+                    src={`https://picsum.photos/seed/${product.imageSeed}/600/400`} 
+                    alt={product.name} 
+                    className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
-              </div>
-            </motion.div>
-          ))}
+                <div className="p-6 flex flex-col flex-grow">
+                  <h3 className="text-2xl font-serif font-semibold text-brand-text mb-2">{product.name}</h3>
+                  <p className="text-brand-text-light text-sm mb-4 flex-grow">{product.description}</p>
+                  <div className="flex justify-between items-center mt-auto">
+                    <span className="text-xl font-semibold text-brand-primary">{product.price} <span className="text-sm font-normal text-brand-text-light">/ 250g</span></span>
+                    <button 
+                      onClick={() => handleEnquiryClick(product)}
+                      className="inline-flex items-center justify-center px-4 py-2 bg-brand-primary text-white font-semibold rounded-full shadow-lg hover:bg-opacity-90 transition-colors duration-300 transform group-hover:scale-105 text-sm"
+                    >
+                      <WhatsAppIcon className="w-5 h-5 mr-2" />
+                      WhatsApp Enquiry
+                    </button>
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
+      <EnquiryModal 
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        product={selectedProduct}
+      />
     </AnimatedPage>
   );
 };

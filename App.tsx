@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { HashRouter, Route, Routes, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
@@ -6,6 +5,7 @@ import { AnimatePresence } from 'framer-motion';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import NoiseBackground from './components/NoiseBackground';
+import ScrollToTop from './components/ScrollToTop';
 
 import Home from './pages/Home';
 import About from './pages/About';
@@ -40,6 +40,7 @@ const App: React.FC = () => {
 
 const AppWrapper: React.FC = () => (
   <HashRouter>
+    <ScrollToTop />
     <App />
   </HashRouter>
 );
