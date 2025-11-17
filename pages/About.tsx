@@ -75,7 +75,7 @@ const About: React.FC = () => {
                 <div className="rounded-2xl p-5 border border-brand-secondary/30">
                   <h3 className="text-base font-serif font-semibold text-brand-text mb-2">The Beginning</h3>
                   <p className="text-sm text-brand-text-light leading-relaxed">
-                    Every great story starts with a dream. Anjali's journey began in her family's kitchen, where generations of culinary wisdom were passed down through recipes, techniques, and most importantly, love.
+                    Every great story starts with a dream! Anjali's journey began in her family's kitchen, where generations of culinary wisdom were passed down through recipes, techniques, and most importantly, love.
                   </p>
                 </div>
               </motion.div>
