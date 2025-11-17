@@ -9,11 +9,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@types/styled-components": "^5.1.35",
+    "framer-motion": "^12.23.24",
+    "lucide-react": "^0.552.0",
+    "motion": "^12.23.24",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
+    "react-hook-form": "^7.51.0",
     "react-router-dom": "^7.9.5",
-    "lucide-react": "^0.552.0",
-    "framer-motion": "^12.23.24"
+    "styled-components": "^6.1.19"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",

@@ -35,10 +35,13 @@ const Header: React.FC = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4">
-        <div className="relative flex items-center justify-between h-16 rounded-2xl bg-white/40 backdrop-blur-lg px-6 border border-white/20 shadow-sm">
-          <NavLink to="/" className="flex items-center space-x-2 text-xl font-serif font-bold text-brand-primary">
-            <Wind className="h-6 w-6" />
-            <span>Anjali's Chakriwala</span>
+        <div className="relative flex items-center justify-between h-16 rounded-2xl bg-white/40 backdrop-blur-lg px-6 border border-black/0 shadow-md">
+          <NavLink to="/" className="flex items-center space-x-2">
+            <img 
+              src="/logo.png" 
+              alt="Anjaliben Chakriwala" 
+              className="h-14 w-auto object-contain"
+            />
           </NavLink>
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
