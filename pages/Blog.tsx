@@ -9,19 +9,19 @@ const blogPosts = [
     title: 'The Secret to the Perfect Chakri Crunch',
     excerpt: 'Discover the traditional techniques we use to achieve that signature snap in every bite.',
     date: 'October 26, 2023',
-    imageSeed: 'blog-crunch'
+    image: '/images/claymorphism_chakri_classic_1765464065428.png'
   },
   {
     title: 'Pairing Namkeen: Beyond Chai Time',
     excerpt: 'Explore creative and delicious ways to pair our savory snacks with drinks, dips, and more.',
     date: 'October 15, 2023',
-    imageSeed: 'blog-pairing'
+    image: '/images/claymorphism_blog_teatime_1765464405529.png'
   },
   {
     title: 'A Journey Through India\'s Favorite Savory Snacks',
     excerpt: 'From chakri to sev, we delve into the rich history and cultural significance of namkeen.',
     date: 'September 30, 2023',
-    imageSeed: 'blog-history'
+    image: '/images/claymorphism_blog_ingredients_1765464347087.png'
   },
 ];
 
@@ -47,7 +47,7 @@ const Blog: React.FC = () => {
               className="group bg-white/40 backdrop-blur-md rounded-2xl overflow-hidden border border-white/30 shadow-sm hover:shadow-xl transition-shadow duration-300 flex flex-col"
             >
               <div className="overflow-hidden">
-                <img src={`https://picsum.photos/seed/${post.imageSeed}/600/400`} alt={post.title} className="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300" />
+                <img src={post.image} alt={post.title} className="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300 drop-shadow-lg" />
               </div>
               <div className="p-6 flex flex-col flex-grow">
                 <p className="text-sm text-brand-text-light mb-2">{post.date}</p>

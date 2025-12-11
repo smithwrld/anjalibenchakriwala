@@ -6,12 +6,14 @@ import EnquiryModal from '../components/EnquiryModal';
 import type { Product } from '../types';
 
 const productList: Product[] = [
-  { name: 'Classic Spiral Chakri', description: 'The original, timeless recipe. Perfectly seasoned and irresistibly crunchy.', price: '₹150', imageSeed: 'classic' },
-  { name: 'Spicy Masala Chakri', description: 'A fiery twist on the classic, infused with a blend of exotic Indian spices.', price: '₹160', imageSeed: 'spicy' },
-  { name: 'Methi (Fenugreek) Chakri', description: 'Aromatic and flavorful, with the subtle bitterness of fenugreek leaves.', price: '₹160', imageSeed: 'methi' },
-  { name: 'Garlic Chakri', description: 'A savory delight for garlic lovers, offering a pungent and delicious kick.', price: '₹160', imageSeed: 'garlic' },
-  { name: 'Whole Wheat Chakri', description: 'A healthier option made with whole wheat flour, without compromising on taste.', price: '₹170', imageSeed: 'wheat' },
-  { name: 'Butter Chakri', description: 'Rich and buttery, this variation melts in your mouth with its smooth flavor.', price: '₹180', imageSeed: 'butter' },
+  { name: 'Classic Spiral Chakri', description: 'The original, timeless recipe. Perfectly seasoned and irresistibly crunchy.', price: '₹150', imageSeed: '/images/product_1.jpg' },
+  { name: 'Spicy Masala Chakri', description: 'A fiery twist on the classic, infused with a blend of exotic Indian spices.', price: '₹160', imageSeed: '/images/product_2.jpg' },
+  { name: 'Methi (Fenugreek) Chakri', description: 'Aromatic and flavorful, with the subtle bitterness of fenugreek leaves.', price: '₹160', imageSeed: '/images/product_3.jpg' },
+  { name: 'Garlic Chakri', description: 'A savory delight for garlic lovers, offering a pungent and delicious kick.', price: '₹160', imageSeed: '/images/product_4.jpg' },
+  { name: 'Whole Wheat Chakri', description: 'A healthier option made with whole wheat flour, without compromising on taste.', price: '₹170', imageSeed: '/images/product_5.jpg' },
+  { name: 'Savory Golden Bites', description: 'Delightful golden bites with a perfect crunch and savory seasoning.', price: '₹140', imageSeed: '/images/product_6.jpg' },
+  { name: 'Masala Roasted Peanuts', description: 'Premium roasted peanuts coated with a special blend of spices.', price: '₹120', imageSeed: '/images/product_7.jpg' },
+  { name: 'Crispy Masala Sticks', description: 'Crunchy, spicy sticks perfect for tea-time snacking.', price: '₹130', imageSeed: '/images/product_8.jpg' },
 ];
 
 const Products: React.FC = () => {
@@ -45,10 +47,10 @@ const Products: React.FC = () => {
                 className="group bg-white/40 backdrop-blur-md rounded-2xl overflow-hidden border border-white/30 shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col"
               >
                 <div className="overflow-hidden">
-                  <img 
-                    src={`https://picsum.photos/seed/${product.imageSeed}/600/400`} 
-                    alt={product.name} 
-                    className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                  <img
+                    src={product.imageSeed}
+                    alt={product.name}
+                    className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300 drop-shadow-md"
                   />
                 </div>
                 <div className="p-6 flex flex-col flex-grow">
@@ -56,7 +58,7 @@ const Products: React.FC = () => {
                   <p className="text-brand-text-light text-sm mb-4 flex-grow">{product.description}</p>
                   <div className="flex justify-between items-center mt-auto">
                     <span className="text-xl font-semibold text-brand-primary">{product.price} <span className="text-sm font-normal text-brand-text-light">/ 250g</span></span>
-                    <button 
+                    <button
                       onClick={() => handleEnquiryClick(product)}
                       className="inline-flex items-center justify-center px-4 py-2 bg-brand-primary text-white font-semibold rounded-full shadow-lg hover:bg-opacity-90 transition-colors duration-300 transform group-hover:scale-105 text-sm"
                     >
@@ -70,7 +72,7 @@ const Products: React.FC = () => {
           })}
         </div>
       </div>
-      <EnquiryModal 
+      <EnquiryModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         product={selectedProduct}
