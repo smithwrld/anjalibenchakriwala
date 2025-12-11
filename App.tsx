@@ -1,6 +1,7 @@
 import React from 'react';
 import { HashRouter, Route, Routes, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
+import './src/styles/globals.css';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
