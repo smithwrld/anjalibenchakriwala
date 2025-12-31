@@ -39,7 +39,7 @@ const DatabaseWithRestApi = ({
         >
             {/* SVG Paths  */}
             <svg
-                className="h-full sm:w-full text-muted"
+                className="h-full sm:w-full text-brand-text/20"
                 width="100%"
                 height="100%"
                 viewBox="0 0 200 100"
@@ -47,7 +47,7 @@ const DatabaseWithRestApi = ({
                 <g
                     stroke="currentColor"
                     fill="none"
-                    strokeWidth="0.4"
+                    strokeWidth="1.5"
                     strokeDasharray="100 100"
                     pathLength="100"
                 >
@@ -60,7 +60,7 @@ const DatabaseWithRestApi = ({
                         attributeName="stroke-dashoffset"
                         from="100"
                         to="0"
-                        dur="1s"
+                        dur="1.5s"
                         fill="freeze"
                         calcMode="spline"
                         keySplines="0.25,0.1,0.5,1"
@@ -105,7 +105,7 @@ const DatabaseWithRestApi = ({
                     />
                 </g>
                 {/* Buttons */}
-                <g stroke="currentColor" fill="none" strokeWidth="0.4">
+                <g stroke="currentColor" fill="none" strokeWidth="1.5">
                     {/* First Button */}
                     <g>
                         <rect
@@ -200,7 +200,7 @@ const DatabaseWithRestApi = ({
                     <mask id="db-mask-1">
                         <path
                             d="M 31 10 v 15 q 0 5 5 5 h 59 q 5 0 5 5 v 10"
-                            strokeWidth="0.5"
+                            strokeWidth="2"
                             stroke="white"
                         />
                     </mask>
@@ -208,7 +208,7 @@ const DatabaseWithRestApi = ({
                     <mask id="db-mask-2">
                         <path
                             d="M 77 10 v 10 q 0 5 5 5 h 13 q 5 0 5 5 v 10"
-                            strokeWidth="0.5"
+                            strokeWidth="2"
                             stroke="white"
                         />
                     </mask>
@@ -216,7 +216,7 @@ const DatabaseWithRestApi = ({
                     <mask id="db-mask-3">
                         <path
                             d="M 124 10 v 10 q 0 5 -5 5 h -14 q -5 0 -5 5 v 10"
-                            strokeWidth="0.5"
+                            strokeWidth="2"
                             stroke="white"
                         />
                     </mask>
@@ -224,13 +224,13 @@ const DatabaseWithRestApi = ({
                     <mask id="db-mask-4">
                         <path
                             d="M 170 10 v 15 q 0 5 -5 5 h -60 q -5 0 -5 5 v 10"
-                            strokeWidth="0.5"
+                            strokeWidth="2"
                             stroke="white"
                         />
                     </mask>
                     {/* Blue Grad */}
                     <radialGradient id="db-blue-grad" fx="1">
-                        <stop offset="0%" stopColor={lightColor || "#121201ff"} />
+                        <stop offset="0%" stopColor={lightColor || "#ca8a04"} />
                         <stop offset="100%" stopColor="transparent" />
                     </radialGradient>
                 </defs>

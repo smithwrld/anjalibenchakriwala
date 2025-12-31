@@ -4,13 +4,14 @@ import AnimatedPage from '../components/AnimatedPage';
 import { motion } from 'framer-motion';
 
 const galleryImages = [
-  { id: 1, src: '/images/claymorphism_gallery_assorted_1765464240836.png', w: 4, h: 3 },
-  { id: 2, src: '/images/claymorphism_gallery_festive_1765464289701.png', w: 3, h: 4 },
-  { id: 3, src: '/images/claymorphism_blog_ingredients_1765464347087.png', w: 3, h: 4 },
-  { id: 4, src: '/images/claymorphism_blog_teatime_1765464405529.png', w: 4, h: 3 },
-  { id: 5, src: '/images/claymorphism_chakri_classic_1765464065428.png', w: 4, h: 3 },
-  { id: 6, src: '/images/claymorphism_chakri_spicy_1765464121633.png', w: 3, h: 4 },
-  { id: 7, src: '/images/claymorphism_chakri_methi_1765464172870.png', w: 3, h: 4 },
+  { id: 1, src: '/images/Chakri.jpg', alt: 'Traditional Chakri - Spiral snack with perfect seasoning', w: 4, h: 3 },
+  { id: 2, src: '/images/Joy stick.jpg', alt: 'Joy Stick - Crunchy wheat sticks with spices', w: 3, h: 4 },
+  { id: 3, src: '/images/Kathol stick.jpg', alt: 'Kathol Stick - Protein-rich dal sticks', w: 4, h: 3 },
+  { id: 4, src: '/images/Bhakharwadi.jpg', alt: 'Bhakharwadi - Classic Gujarati sweet and spicy snack', w: 3, h: 4 },
+  { id: 5, src: '/images/Sakarpara.jpg', alt: 'Sakarpara - Sweet and crispy diamond-shaped treats', w: 4, h: 3 },
+  { id: 6, src: '/images/Jain Soya stick.jpg', alt: 'Soya Stick - Healthy soya sticks with Manchurian flavor', w: 3, h: 4 },
+  { id: 7, src: '/images/Sing bhujiya.jpg', alt: 'Sing Bhujiya - Crunchy peanut bhujiya with aromatic spices', w: 4, h: 3 },
+  { id: 8, src: '/images/Roasted Maggie chips.jpg', alt: 'Roasted Maggie Chips - Crispy chips with popular Maggie flavor', w: 3, h: 4 },
 ];
 
 const Gallery: React.FC = () => {
@@ -36,7 +37,7 @@ const Gallery: React.FC = () => {
             >
               <img
                 src={image.src}
-                alt={`Gallery image ${image.id}`}
+                alt={image.alt}
                 className="w-full h-auto object-cover hover:scale-105 transition-transform duration-300 cursor-pointer drop-shadow-xl"
               />
             </motion.div>

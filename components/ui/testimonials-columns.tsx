@@ -24,25 +24,17 @@ export const TestimonialsColumn = (props: {
         {[
           ...new Array(2).fill(0).map((_, index) => (
             <React.Fragment key={index}>
-              {props.testimonials.map(({ text, image, name, role }, i) => (
-                <div 
-                  className="p-6 rounded-2xl bg-white/20 backdrop-blur-lg border border-black/10 shadow-md max-w-xs w-full hover:shadow-lg transition-shadow duration-300" 
+              {props.testimonials.map(({ text, name }, i) => (
+                <div
+                  className="p-6 rounded-2xl bg-white/20 backdrop-blur-lg border border-black/10 shadow-md max-w-xs w-full hover:shadow-lg transition-shadow duration-300"
                   key={i}
                 >
                   <div className="text-brand-text-light text-sm leading-relaxed mb-4 italic">
                     "{text}"
                   </div>
-                  <div className="flex items-center gap-3">
-                    <img
-                      width={40}
-                      height={40}
-                      src={image}
-                      alt={name}
-                      className="h-10 w-10 rounded-full border-2 border-brand-primary/20"
-                    />
-                    <div className="flex flex-col">
-                      <div className="font-semibold text-brand-text text-sm leading-tight">{name}</div>
-                      <div className="text-xs text-brand-primary leading-tight">{role}</div>
+                  <div className="flex items-center justify-center">
+                    <div className="font-semibold text-brand-text text-sm leading-tight text-center">
+                      — {name}
                     </div>
                   </div>
                 </div>
@@ -55,61 +47,43 @@ export const TestimonialsColumn = (props: {
   );
 };
 
-// Testimonials data adapted for your chakri business
+// Testimonials data for Anjali Ben Chakri business
 const testimonials = [
   {
-    text: "Absolutely the best chakri I've had outside of my grandmother's kitchen! The texture and taste are perfect.",
-    image: "https://randomuser.me/api/portraits/women/1.jpg",
-    name: "Priya Sharma",
-    role: "Food Enthusiast",
+    text: "The best chakri I have ever tasted! Crispy, flavorful, and absolutely authentic. Anjali Ben's chakri has become a must-have in our home for every festival and celebration.",
+    name: "Vimal Gohel",
   },
   {
-    text: "The spicy masala chakri is addictive. Perfect snack for any time of the day. Highly recommended!",
-    image: "https://randomuser.me/api/portraits/men/2.jpg",
-    name: "Rohan Mehta",
-    role: "Regular Customer",
+    text: "I've tried many brands but nothing compares to the homemade taste of these chakris. The perfect crunch and traditional spices make it irresistible. My family is hooked!",
+    name: "Monali Pandhare",
   },
   {
-    text: "Amazing quality and authentic taste. These chakris remind me of my childhood. Will definitely order again!",
-    image: "https://randomuser.me/api/portraits/women/3.jpg",
-    name: "Kavya Patel",
-    role: "Happy Customer",
+    text: "Outstanding quality and freshness! Every bite reminds me of my grandmother's kitchen. The attention to detail and love in making these chakris really shows.",
+    name: "Chandresh Chavda",
   },
   {
-    text: "Fresh, crispy, and full of flavor. The traditional recipe really shows in every bite. Excellent service too!",
-    image: "https://randomuser.me/api/portraits/men/4.jpg",
-    name: "Arjun Singh",
-    role: "Food Blogger",
+    text: "These chakris are simply amazing! The texture is perfect - not too hard, not too soft. The masala flavor is well-balanced and leaves you wanting more. Highly recommended!",
+    name: "Parthiv Pithadiya",
   },
   {
-    text: "I ordered for a family gathering and everyone loved them. The methi chakri is particularly outstanding!",
-    image: "https://randomuser.me/api/portraits/women/5.jpg",
-    name: "Meera Gupta",
-    role: "Family Customer",
+    text: "I ordered chakris for my daughter's wedding and received so many compliments from guests. The authentic Gujarati taste transported everyone back to their roots!",
+    name: "Dhushyant Gonadliya",
   },
   {
-    text: "Authentic taste, perfect packaging, and quick delivery. This is exactly what traditional snacks should be!",
-    image: "https://randomuser.me/api/portraits/women/6.jpg",
-    name: "Anita Joshi",
-    role: "Loyal Customer",
+    text: "Pure, traditional, and absolutely delicious! The chakris are so fresh and crispy. Perfect with evening chai. Will definitely be a repeat customer!",
+    name: "Charmi Raichura",
   },
   {
-    text: "The quality is consistent and the flavors are amazing. These chakris are now a staple in our home!",
-    image: "https://randomuser.me/api/portraits/men/7.jpg",
-    name: "Vikram Rao",
-    role: "Regular Buyer",
+    text: "Exceptional taste and quality! These chakris are made with genuine care and the finest ingredients. The spiral shape is perfect and the crispiness lasts for weeks.",
+    name: "Smit Modi",
   },
   {
-    text: "Handcrafted with love - you can really taste the difference. Best traditional snacks I've found online!",
-    image: "https://randomuser.me/api/portraits/women/8.jpg",
-    name: "Sunita Devi",
-    role: "Traditional Food Lover",
+    text: "Being away from Gujarat, I missed the authentic taste of homemade snacks. Anjali Ben's chakri filled that void perfectly. It's like having a piece of home delivered!",
+    name: "Ramkrushna Prajapati",
   },
   {
-    text: "Perfect for tea time and gatherings. The spiral shape and crispy texture are just like homemade!",
-    image: "https://randomuser.me/api/portraits/men/9.jpg",
-    name: "Rajesh Kumar",
-    role: "Tea Time Regular",
+    text: "The most authentic chakri I've found! The recipe is clearly passed down through generations. My whole family loves it and we keep ordering regularly. Thank you Anjali Ben!",
+    name: "Mahesh Prajapati",
   },
 ];
 

@@ -103,8 +103,8 @@ const Home: React.FC = () => {
         </section>
 
         {/* Featured Products */}
-        <section className="py-16 md:py-20">
-          <div className="text-center mb-12">
+        <section className="py-12 md:py-16">
+          <div className="text-center mb-8">
             <motion.span
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -119,7 +119,7 @@ const Home: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.1 }}
-              className="text-3xl md:text-4xl font-serif font-light text-brand-text mb-4"
+              className="text-3xl md:text-4xl font-serif font-light text-brand-text mb-3"
             >
               Our Signature Snacks
             </motion.h2>
@@ -132,28 +132,38 @@ const Home: React.FC = () => {
             />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
             {[
               {
-                name: 'Classic Spiral Chakri',
-                description: 'Traditional recipe with perfect spiral texture and authentic taste',
-                price: '₹180',
-                weight: '250g',
-                image: '/chakri-image-removebg-preview.png'
+                name: 'Chakri',
+                description: 'Traditional spiral snack with perfect seasoning and irresistible crunch',
+                weightOptions: [
+                  { weight: '200gm', price: '₹70' },
+                  { weight: '400gm', price: '₹140' }
+                ],
+                ingredients: 'wheat flour, salt, chilly powder, ajwain, til, edible oil',
+                image: '/images/Chakri.jpg'
               },
               {
-                name: 'Spicy Masala Chakri',
-                description: 'Bold flavors with aromatic spices for the adventurous palate',
-                price: '₹200',
-                weight: '250g',
-                image: '/chakri-image-removebg-preview.png'
+                name: 'Bhakharwadi',
+                description: 'Classic Gujarati snack with sweet and spicy filling',
+                weightOptions: [
+                  { weight: '250gm', price: '₹80' },
+                  { weight: '500gm', price: '₹150' }
+                ],
+                ingredients: 'maida, salt, haldi, dhana, mirch powder, garam masala, varyali, imily, jaggery, edible oil',
+                image: '/images/Bhakharwadi.jpg'
               },
               {
-                name: 'Methi Chakri',
-                description: 'Nutritious fenugreek leaves blended with traditional craftsmanship',
-                price: '₹220',
-                weight: '250g',
-                image: '/chakri-image-removebg-preview.png'
+                name: 'Sakarpara',
+                description: 'Sweet and crispy diamond-shaped treats with authentic Kathiyawadi taste',
+                weightOptions: [
+                  { weight: '200gm', price: '₹80' },
+                  { weight: '400gm', price: '₹150' }
+                ],
+                ingredients: 'wheat flour, maida, sugar, edible oil',
+                image: '/images/Sakarpara.jpg',
+                badge: '⭐ Kathiyawadi Special'
               }
             ].map((product, i) => (
               <motion.div
@@ -162,57 +172,58 @@ const Home: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.7, delay: 0.2 * i }}
-                whileHover={{ y: -8 }}
+                whileHover={{ y: -5 }}
                 className="group relative"
               >
-                <div className="relative bg-brand-bg-light/80 backdrop-blur-lg rounded-2xl p-6 border border-black/20 shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
-                  {/* Subtle gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-brand-bg-light/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
-
+                <div className="relative bg-white rounded-xl p-4 border border-gray-200 hover:shadow-lg transition-all duration-300">
                   {/* Product Image Container */}
-                  <div className="relative mb-6">
-                    <div className="aspect-square rounded-xl bg-gradient-to-br from-brand-primary/5 to-brand-primary/10 p-4 mb-4 overflow-hidden border border-black/10">
-                      <img
-                        src={product.image}
-                        alt={product.name}
-                        className="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-transform duration-500"
-                      />
-                    </div>
-
-                    {/* Price Badge */}
-                    <div className="absolute -top-1 -right-1 bg-brand-primary text-white px-3 py-1 rounded-full text-xs font-semibold shadow-md border border-black/10">
-                      {product.price}
-                    </div>
+                  <div className="relative mb-3 overflow-hidden rounded-lg">
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      className="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    {/* Simple Badge */}
+                    {product.badge && (
+                      <div className="absolute top-2 right-2 bg-brand-primary/90 backdrop-blur-sm text-white px-2 py-0.5 rounded text-xs font-medium">
+                        {product.badge}
+                      </div>
+                    )}
                   </div>
 
                   {/* Product Info */}
-                  <div className="relative z-10 text-center">
-                    <h3 className="text-lg md:text-xl font-serif font-medium text-brand-text mb-2 group-hover:text-brand-primary transition-colors duration-300">
+                  <div>
+                    <h3 className="text-lg font-serif font-semibold text-brand-text mb-1 text-center">
                       {product.name}
                     </h3>
 
-                    <p className="text-brand-text-light text-xs leading-relaxed mb-3 max-w-xs mx-auto">
+                    <p className="text-brand-text-light text-xs leading-relaxed mb-3 text-center">
                       {product.description}
                     </p>
 
-                    {/* Weight and Rating */}
-                    <div className="flex items-center justify-between mb-4">
-                      <span className="text-xs font-medium text-brand-primary bg-brand-primary/10 px-2 py-1 rounded-full border border-black/5">
-                        {product.weight}
-                      </span>
-                      <div className="flex items-center text-amber-400">
-                        {[...Array(5)].map((_, i) => (
-                          <Star key={i} fill="currentColor" size={12} className="mr-0.5" />
-                        ))}
-                        <span className="text-xs text-brand-text-light ml-1">5.0</span>
-                      </div>
+                    {/* Weight Options - Simplified */}
+                    <div className="flex gap-2 justify-center mb-3">
+                      {product.weightOptions.map((option, idx) => (
+                        <span key={idx} className="text-xs text-brand-primary font-medium">
+                          {option.weight}: {option.price}
+                        </span>
+                      ))}
                     </div>
 
-                    {/* WhatsApp Order Button */}
-                    <WhatsAppOrderButton
-                      productName={product.name}
-                      price={product.price}
-                    />
+                    {/* Ingredients - Minimalistic */}
+                    <div className="mb-3 text-center">
+                      <p className="text-xs text-brand-text-light italic">
+                        {product.ingredients}
+                      </p>
+                    </div>
+
+                    {/* View Details Button - Clean */}
+                    <NavLink
+                      to="/products"
+                      className="block w-full text-center px-4 py-2 bg-brand-primary text-white font-medium rounded-lg hover:bg-opacity-90 transition-all duration-300 text-sm"
+                    >
+                      View Details
+                    </NavLink>
                   </div>
                 </div>
               </motion.div>
