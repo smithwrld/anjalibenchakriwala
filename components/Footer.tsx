@@ -13,14 +13,10 @@ const Footer: React.FC = () => {
       { name: 'About Us', path: '/about' },
       { name: 'Our Products', path: '/products' },
       { name: 'Gallery', path: '/gallery' },
-      { name: 'Blog', path: '/blog' }
+      { name: 'Blog', path: '/blog' },
+      { name: 'Contact Us', path: '/contact' }
     ],
-    support: [
-      { name: 'Contact Us', path: '/contact' },
-      { name: 'FAQ', path: '#' },
-      { name: 'Shipping Info', path: '#' },
-      { name: 'Returns', path: '#' }
-    ],
+
     legal: [
       { name: 'Privacy Policy', path: '/privacy-policy' },
       { name: 'Terms of Service', path: '/terms-of-service' },
@@ -106,7 +102,7 @@ const Footer: React.FC = () => {
               </motion.div>
 
               {/* Navigation Links - Spans 6 columns */}
-              <div className="lg:col-span-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="lg:col-span-6 grid grid-cols-1 md:grid-cols-2 gap-6">
 
                 {/* Explore */}
                 <motion.div
@@ -144,41 +140,7 @@ const Footer: React.FC = () => {
                   </div>
                 </motion.div>
 
-                {/* Support */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                >
-                  <div className="relative">
-                    <h4 className="font-serif font-medium text-brand-text mb-3 text-base relative">
-                      Support
-                      <div className="absolute -bottom-1 left-0 w-8 h-[2px] bg-gradient-to-r from-brand-primary to-transparent"></div>
-                    </h4>
-                    <ul className="space-y-2">
-                      {footerLinks.support.map((link, index) => (
-                        <motion.li
-                          key={link.name}
-                          initial={{ opacity: 0, x: -10 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 0.3, delay: index * 0.1 }}
-                        >
-                          <NavLink
-                            to={link.path}
-                            className="text-brand-text-light hover:text-brand-primary transition-all duration-300 text-sm group flex items-center relative overflow-hidden"
-                          >
-                            <span className="group-hover:translate-x-1 transition-transform duration-300 relative z-10">
-                              {link.name}
-                            </span>
-                            <div className="absolute inset-0 bg-brand-primary/5 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded"></div>
-                          </NavLink>
-                        </motion.li>
-                      ))}
-                    </ul>
-                  </div>
-                </motion.div>
+
 
                 {/* Contact Info */}
                 <motion.div
