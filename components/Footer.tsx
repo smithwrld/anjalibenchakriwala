@@ -22,9 +22,9 @@ const Footer: React.FC = () => {
       { name: 'Returns', path: '#' }
     ],
     legal: [
-      { name: 'Privacy Policy', path: '#' },
-      { name: 'Terms of Service', path: '#' },
-      { name: 'Cookie Policy', path: '#' }
+      { name: 'Privacy Policy', path: '/privacy-policy' },
+      { name: 'Terms of Service', path: '/terms-of-service' },
+      { name: 'Cookie Policy', path: '/cookie-policy' }
     ]
   };
 
@@ -311,7 +311,7 @@ const Footer: React.FC = () => {
                     imageSrc="/somethingmedia.png"
                     className="font-medium text-brand-text hover:text-brand-primary transition-colors cursor-pointer border-b border-brand-primary/20 hover:border-brand-primary"
                   >
-                    Something Media
+                    <a href="https://www.somethingmedia.in/"> Something Media </a>
                   </HoverPeek>
                 </div>
               </motion.div>
