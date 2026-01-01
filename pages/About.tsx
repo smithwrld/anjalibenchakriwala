@@ -1,13 +1,38 @@
 
 import React from 'react';
 import AnimatedPage from '../components/AnimatedPage';
+import SEOHead from '../components/SEOHead';
+import { BreadcrumbSchema } from '../components/SchemaMarkup';
 import { motion } from 'framer-motion';
-import { Heart, ChefHat, Wheat, Sparkles } from 'lucide-react';
+import { Heart, ChefHat, Wheat, Sparkles, Leaf, Truck, Shield } from 'lucide-react';
+import { NavLink } from 'react-router-dom';
 
 const About: React.FC = () => {
+  const breadcrumbs = [
+    { name: 'Home', url: 'https://anjalibenchakriwala.com/' },
+    { name: 'About Us', url: 'https://anjalibenchakriwala.com/about' }
+  ];
+
   return (
     <AnimatedPage>
+      {/* SEO Head */}
+      <SEOHead
+        title="About Anjaliben Chakriwala | Traditional Gujarati Snacks Story | Homemade Quality"
+        description="Discover the story of Anjaliben Chakriwala - a family legacy of handcrafting authentic Gujarati snacks. Learn about our traditional recipes, quality ingredients, and commitment to preservative-free homemade namkeen."
+        keywords="about anjaliben chakriwala, gujarati snacks story, homemade snacks brand, traditional snack makers india, authentic namkeen brand, family snack business"
+        canonicalUrl="https://anjalibenchakriwala.com/about"
+        ogImage="/anjumemlogo2.png"
+      />
+      <BreadcrumbSchema items={breadcrumbs} />
+
       <div className="bg-gradient-to-r min-h-screen">
+        {/* Breadcrumb */}
+        <nav className="max-w-5xl mx-auto px-4 sm:px-6 py-4 text-sm text-brand-text-light">
+          <NavLink to="/" className="hover:text-brand-primary">Home</NavLink>
+          <span className="mx-2">/</span>
+          <span className="text-brand-text">About Us</span>
+        </nav>
+
         {/* Meet Anjali Section - First Section */}
         <section className="max-w-5xl mx-auto px-4 sm:px-6 py-20 sm:py-28 md:py-36">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
@@ -17,9 +42,9 @@ const About: React.FC = () => {
               transition={{ duration: 0.9, ease: "easeOut" }}
               className="order-2 md:order-1"
             >
-              <img 
-                src="/anjumemlogo2.png" 
-                alt="Anjali Benchakriwala" 
+              <img
+                src="/anjalibenchakriwalaa.jpeg"
+                alt="Anjali Benchakriwala - Founder of Anjaliben Chakriwala traditional Gujarati snacks brand"
                 className="rounded-2xl shadow-lg w-full h-auto object-cover"
               />
             </motion.div>
@@ -30,15 +55,37 @@ const About: React.FC = () => {
               className="order-1 md:order-2 space-y-6"
             >
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-brand-text leading-tight">
-                Meet Anjali
+                Meet Anjali - The Heart Behind Our Snacks
               </h1>
               <p className="text-base sm:text-lg text-brand-text-light leading-relaxed">
                 Anjali's passion for cooking began at a young age, learning the art of making traditional Indian snacks from her mother and grandmother. The star of her culinary repertoire has always been the 'chakri' – a snack that's simple in its ingredients but complex in its perfection.
               </p>
               <p className="text-base sm:text-lg text-brand-text-light leading-relaxed">
-                What started as a cherished family recipe, shared during festivals and special occasions, soon became a local sensation. Friends and neighbors couldn't get enough of her perfectly crisp and flavorful chakris. Encouraged by their love and support, Anjali decided to share her gift with the world, and thus, Anjali's Chakriwala was born.
+                What started as a cherished family recipe, shared during festivals and special occasions, soon became a local sensation. Friends and neighbors couldn't get enough of her perfectly crisp and flavorful chakris. Encouraged by their love and support, Anjali decided to share her gift with the world, and thus, <strong>Anjaliben Chakriwala</strong> was born.
               </p>
             </motion.div>
+          </div>
+        </section>
+
+        {/* Trust Badges */}
+        <section className="max-w-5xl mx-auto px-4 sm:px-6 py-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="bg-white/50 backdrop-blur-sm rounded-xl p-4 text-center border border-brand-secondary/30">
+              <Leaf className="w-8 h-8 text-green-600 mx-auto mb-2" />
+              <p className="text-sm font-medium text-brand-text">100% Vegetarian</p>
+            </div>
+            <div className="bg-white/50 backdrop-blur-sm rounded-xl p-4 text-center border border-brand-secondary/30">
+              <Shield className="w-8 h-8 text-brand-primary mx-auto mb-2" />
+              <p className="text-sm font-medium text-brand-text">No Preservatives</p>
+            </div>
+            <div className="bg-white/50 backdrop-blur-sm rounded-xl p-4 text-center border border-brand-secondary/30">
+              <Truck className="w-8 h-8 text-brand-primary mx-auto mb-2" />
+              <p className="text-sm font-medium text-brand-text">PAN India Delivery</p>
+            </div>
+            <div className="bg-white/50 backdrop-blur-sm rounded-xl p-4 text-center border border-brand-secondary/30">
+              <Sparkles className="w-8 h-8 text-brand-primary mx-auto mb-2" />
+              <p className="text-sm font-medium text-brand-text">Jain Friendly Options</p>
+            </div>
           </div>
         </section>
 
@@ -53,7 +100,7 @@ const About: React.FC = () => {
           >
             <h2 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-brand-text mb-3">Our Journey</h2>
             <p className="text-base sm:text-lg text-brand-text-light max-w-2xl mx-auto">
-              From humble beginnings to becoming a beloved brand
+              From humble beginnings to becoming a beloved Gujarati snacks brand
             </p>
           </motion.div>
 
@@ -71,7 +118,7 @@ const About: React.FC = () => {
               >
                 {/* Connected dot on line */}
                 <div className="absolute -left-1.5 top-1.5 w-3 h-3 bg-brand-primary rounded-full shadow-md"></div>
-                
+
                 <div className="rounded-2xl p-5 border border-brand-secondary/30">
                   <h3 className="text-base font-serif font-semibold text-brand-text mb-2">The Beginning</h3>
                   <p className="text-sm text-brand-text-light leading-relaxed">
@@ -89,7 +136,7 @@ const About: React.FC = () => {
               >
                 {/* Connected dot on line */}
                 <div className="absolute -left-1.5 top-1.5 w-3 h-3 bg-brand-primary rounded-full shadow-md"></div>
-                
+
                 <div className="rounded-2xl p-5 border border-brand-secondary/30">
                   <h3 className="text-base font-serif font-semibold text-brand-text mb-2">Growing Recognition</h3>
                   <p className="text-sm text-brand-text-light leading-relaxed">
@@ -107,11 +154,11 @@ const About: React.FC = () => {
               >
                 {/* Connected dot on line */}
                 <div className="absolute -left-1.5 top-1.5 w-3 h-3 bg-brand-primary rounded-full shadow-md"></div>
-                
+
                 <div className="rounded-2xl p-5 border border-brand-secondary/30">
-                  <h3 className="text-base font-serif font-semibold text-brand-text mb-2">Today</h3>
+                  <h3 className="text-base font-serif font-semibold text-brand-text mb-2">Today - PAN India Delivery</h3>
                   <p className="text-sm text-brand-text-light leading-relaxed">
-                    Today, Anjali's Chakriwala stands as a testament to tradition, quality, and passion. Every product is handcrafted with the same care and attention to detail.
+                    Today, Anjaliben Chakriwala stands as a testament to tradition, quality, and passion. We deliver our authentic Gujarati snacks to customers across India - from Mumbai to Delhi, Bangalore to Chennai, and everywhere in between.
                   </p>
                 </div>
               </motion.div>
@@ -144,7 +191,7 @@ const About: React.FC = () => {
               </div>
               <h3 className="text-lg font-serif font-semibold text-brand-text mb-2">Authenticity</h3>
               <p className="text-sm text-brand-text-light leading-relaxed">
-                We stay true to our roots, using timeless recipes passed down through generations.
+                We stay true to our roots, using timeless recipes passed down through generations of Gujarati families.
               </p>
             </motion.div>
 
@@ -160,7 +207,7 @@ const About: React.FC = () => {
               </div>
               <h3 className="text-lg font-serif font-semibold text-brand-text mb-2">Quality Ingredients</h3>
               <p className="text-sm text-brand-text-light leading-relaxed">
-                We handpick the finest, all-natural ingredients to ensure exceptional taste and freshness.
+                We handpick the finest, all-natural ingredients to ensure exceptional taste and freshness in every batch.
               </p>
             </motion.div>
 
@@ -176,7 +223,7 @@ const About: React.FC = () => {
               </div>
               <h3 className="text-lg font-serif font-semibold text-brand-text mb-2">Handcrafted with Love</h3>
               <p className="text-sm text-brand-text-light leading-relaxed">
-                Every batch is made by hand with utmost care and attention to detail.
+                Every batch is made by hand with utmost care and attention to detail, just like homemade.
               </p>
             </motion.div>
           </div>
@@ -191,9 +238,9 @@ const About: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-text mb-4">Why Choose Us</h2>
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-text mb-4">Why Choose Anjaliben Chakriwala?</h2>
             <p className="text-base text-brand-text-light max-w-2xl mx-auto">
-              What makes Anjali's Chakriwala different
+              What makes our Gujarati snacks different from store-bought alternatives
             </p>
           </motion.div>
 
@@ -212,7 +259,7 @@ const About: React.FC = () => {
               </div>
               <div>
                 <h3 className="text-lg font-semibold text-brand-text mb-2">Traditional Recipes</h3>
-                <p className="text-sm text-brand-text-light">Recipes perfected over decades, maintaining the authentic taste that defines our brand.</p>
+                <p className="text-sm text-brand-text-light">Recipes perfected over decades, maintaining the authentic Kathiyawadi and Gujarati taste.</p>
               </div>
             </motion.div>
 
@@ -230,7 +277,7 @@ const About: React.FC = () => {
               </div>
               <div>
                 <h3 className="text-lg font-semibold text-brand-text mb-2">No Preservatives</h3>
-                <p className="text-sm text-brand-text-light">Fresh, natural ingredients with no artificial additives or preservatives. Pure goodness in every bite.</p>
+                <p className="text-sm text-brand-text-light">Fresh, natural ingredients with no artificial additives. Pure, preservative-free goodness.</p>
               </div>
             </motion.div>
 
@@ -248,7 +295,7 @@ const About: React.FC = () => {
               </div>
               <div>
                 <h3 className="text-lg font-semibold text-brand-text mb-2">Small Batch Production</h3>
-                <p className="text-sm text-brand-text-light">We produce in small batches to ensure quality control and freshness in every package.</p>
+                <p className="text-sm text-brand-text-light">We produce in small batches to ensure quality control and freshness in every order.</p>
               </div>
             </motion.div>
 
@@ -265,8 +312,8 @@ const About: React.FC = () => {
                 </div>
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-brand-text mb-2">Customer Passion</h3>
-                <p className="text-sm text-brand-text-light">We genuinely care about our customers and their satisfaction is our greatest reward.</p>
+                <h3 className="text-lg font-semibold text-brand-text mb-2">Jain & Vegetarian Friendly</h3>
+                <p className="text-sm text-brand-text-light">Most of our snacks are Jain-friendly with no onion, garlic, or root vegetables.</p>
               </div>
             </motion.div>
           </div>
@@ -283,14 +330,14 @@ const About: React.FC = () => {
           >
             <h2 className="text-3xl font-serif font-bold text-brand-text mb-4">Experience the Difference</h2>
             <p className="text-base text-brand-text-light mb-8 max-w-2xl mx-auto">
-              Taste the tradition, quality, and love that goes into every product. Join our growing family of satisfied customers who believe in authentic, handcrafted goodness.
+              Taste the tradition, quality, and love that goes into every product. Order our authentic Gujarati snacks today with PAN India delivery.
             </p>
-            <a 
-              href="/contact" 
+            <NavLink
+              to="/products"
               className="inline-flex items-center gap-2 bg-brand-primary hover:bg-brand-primary/90 text-white font-medium py-3 px-8 rounded-full transition-colors"
             >
-              Get in Touch
-            </a>
+              Order Online Now
+            </NavLink>
           </motion.div>
         </section>
       </div>

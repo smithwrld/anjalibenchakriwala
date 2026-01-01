@@ -1,8 +1,11 @@
 
 import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import AnimatedPage from '../components/AnimatedPage';
+import SEOHead from '../components/SEOHead';
+import { BreadcrumbSchema } from '../components/SchemaMarkup';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Phone, Mail, MapPin, Send } from 'lucide-react';
+import { Phone, Mail, MapPin, Send, ChevronRight, MessageCircle, Truck, Clock } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 
 const Contact: React.FC = () => {
@@ -10,16 +13,21 @@ const Contact: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  const breadcrumbs = [
+    { name: 'Home', url: 'https://anjalibenchakriwala.com/' },
+    { name: 'Contact', url: 'https://anjalibenchakriwala.com/contact' }
+  ];
+
   const onSubmit = async (data: any) => {
     setIsSubmitting(true);
-    
+
     // Format the message for WhatsApp
     const message = `Hello! I have a new contact form enquiry:\n\n*Name:* ${data.name}\n*Email:* ${data.email}\n*Message:* ${data.message}`;
-    const whatsappUrl = `https://wa.me/916352711793?text=${encodeURIComponent(message)}`;
-    
+    const whatsappUrl = `https://wa.me/918460078518?text=${encodeURIComponent(message)}`;
+
     // Open WhatsApp
     window.open(whatsappUrl, '_blank');
-    
+
     await new Promise(resolve => setTimeout(resolve, 1500));
     console.log('Form submitted:', data);
     setIsSubmitting(false);
@@ -30,8 +38,56 @@ const Contact: React.FC = () => {
 
   return (
     <AnimatedPage>
+      {/* SEO Head */}
+      <SEOHead
+        title="Contact Anjaliben Chakriwala | Order Gujarati Snacks | PAN India Delivery"
+        description="Contact us for orders, bulk enquiries, or questions about our authentic Gujarati snacks. WhatsApp ordering available. PAN India delivery for chakri, bhakharwadi & more."
+        keywords="contact anjaliben chakriwala, order gujarati snacks, bulk snack orders india, whatsapp snack order, namkeen delivery contact"
+        canonicalUrl="https://anjalibenchakriwala.com/contact"
+        ogImage="/logo.png"
+      />
+      <BreadcrumbSchema items={breadcrumbs} />
+
       <section className="py-12 px-4 sm:px-6 bg-gradient-to-r">
         <div className="container mx-auto max-w-6xl">
+          {/* Breadcrumb Navigation */}
+          <nav className="flex items-center text-sm text-brand-text-light mb-8" aria-label="Breadcrumb">
+            <NavLink to="/" className="hover:text-brand-primary transition-colors">Home</NavLink>
+            <ChevronRight className="w-4 h-4 mx-2" />
+            <span className="text-brand-text font-medium">Contact Us</span>
+          </nav>
+
+          {/* Page Header */}
+          <div className="text-center mb-12">
+            <h1 className="text-4xl md:text-5xl font-serif font-bold text-brand-text mb-4">
+              Contact Us - Order Gujarati Snacks
+            </h1>
+            <p className="text-lg text-brand-text-light max-w-2xl mx-auto">
+              Ready to taste authentic homemade snacks? Reach out via WhatsApp for quick ordering or fill the form below.
+              <strong> We deliver fresh across India!</strong>
+            </p>
+          </div>
+
+          {/* Quick Order CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="mb-12 bg-brand-primary/10 border border-brand-primary/20 rounded-2xl p-6 text-center"
+          >
+            <h2 className="text-xl font-semibold text-brand-text mb-2">Quick Order via WhatsApp</h2>
+            <p className="text-brand-text-light mb-4">The fastest way to order our snacks - direct WhatsApp chat!</p>
+            <a
+              href="https://wa.me/918460078518?text=Hi! I would like to order Gujarati snacks."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white font-medium py-3 px-6 rounded-full transition-colors"
+            >
+              <MessageCircle className="w-5 h-5" />
+              Order on WhatsApp Now
+            </a>
+          </motion.div>
+
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Contact Form */}
             <motion.div
@@ -47,7 +103,7 @@ const Contact: React.FC = () => {
                       Send us a message
                     </h2>
                     <p className="text-xs sm:text-sm text-brand-text-light font-light">
-                      Fill out the form below and we'll get back to you within 24 hours.
+                      Fill out the form below for enquiries, bulk orders, or custom requirements. We respond within 24 hours.
                     </p>
                   </div>
 
@@ -119,7 +175,7 @@ const Contact: React.FC = () => {
                             rows={4}
                             {...register('message', { required: 'Message is required' })}
                             className="flex min-h-[80px] w-full border px-4 py-3 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 bg-white border-brand-secondary focus:border-brand-primary focus:ring-brand-primary/20 resize-none rounded-3xl"
-                            placeholder="Tell us about your inquiry..."
+                            placeholder="Tell us about your order or inquiry..."
                           />
                           {errors.message && (
                             <p className="mt-1 text-sm text-red-600">{String(errors.message.message)}</p>
@@ -170,8 +226,8 @@ const Contact: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-brand-text mb-1">Email</h3>
-                  <a href="mailto:hello@anjalibenchakriwala.com" className="text-sm text-brand-text-light hover:text-brand-primary transition-colors">
-                    hello@anjalibenchakriwala.com
+                  <a href="mailto:anjalibenchakriwala@gmail.com" className="text-sm text-brand-text-light hover:text-brand-primary transition-colors">
+                    anjalibenchakriwala@gmail.com
                   </a>
                 </div>
               </div>
@@ -182,34 +238,37 @@ const Contact: React.FC = () => {
                   <Phone className="w-6 h-6 text-brand-primary" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-brand-text mb-1">Phone</h3>
-                  <a href="tel:+911234567890" className="text-sm text-brand-text-light hover:text-brand-primary transition-colors">
-                    +91 12345 67890
+                  <h3 className="font-semibold text-brand-text mb-1">Phone / WhatsApp</h3>
+                  <a href="tel:+918460078518" className="text-sm text-brand-text-light hover:text-brand-primary transition-colors">
+                    +91 84600 78518
                   </a>
                 </div>
               </div>
 
-              {/* Address */}
+              {/* Delivery Info */}
               <div className="flex gap-4">
                 <div className="flex-shrink-0 w-12 h-12 bg-brand-secondary rounded-lg flex items-center justify-center">
-                  <MapPin className="w-6 h-6 text-brand-primary" />
+                  <Truck className="w-6 h-6 text-brand-primary" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-brand-text mb-1">Address</h3>
+                  <h3 className="font-semibold text-brand-text mb-1">Delivery</h3>
                   <p className="text-sm text-brand-text-light">
-                    123 Savory Lane, Namkeen Nagar,<br />
-                    Mumbai, Maharashtra 400001
+                    PAN India delivery available<br />
+                    3-7 business days
                   </p>
                 </div>
               </div>
 
               {/* Business Hours */}
               <div className="rounded-3xl border border-brand-secondary bg-brand-bg-light p-4 shadow-sm">
-                <h3 className="font-semibold text-brand-text mb-3 text-sm">Business Hours</h3>
+                <div className="flex items-center gap-2 mb-3">
+                  <Clock className="w-5 h-5 text-brand-primary" />
+                  <h3 className="font-semibold text-brand-text text-sm">Business Hours</h3>
+                </div>
                 <div className="space-y-2 text-xs text-brand-text-light">
                   <div className="flex justify-between">
                     <span>Monday - Friday</span>
-                    <span className="font-medium text-brand-text">9:00 AM - 8:00 PM</span>
+                    <span className="font-medium text-brand-text">9:00 AM - 9:00 PM</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Saturday</span>
@@ -220,6 +279,28 @@ const Contact: React.FC = () => {
                     <span className="font-medium text-brand-text">Closed</span>
                   </div>
                 </div>
+              </div>
+
+              {/* Trust Signals */}
+              <div className="rounded-3xl border border-brand-secondary bg-brand-bg-light p-4 shadow-sm">
+                <h3 className="font-semibold text-brand-text text-sm mb-3">Why Order From Us?</h3>
+                <ul className="space-y-2 text-xs text-brand-text-light">
+                  <li className="flex items-center gap-2">
+                    <span className="text-green-600">✓</span> 100% Vegetarian & Jain Options
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-green-600">✓</span> No Preservatives Added
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-green-600">✓</span> Fresh Handmade Quality
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-green-600">✓</span> Secure Packaging
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-green-600">✓</span> Bulk Orders Available
+                  </li>
+                </ul>
               </div>
             </motion.div>
           </div>

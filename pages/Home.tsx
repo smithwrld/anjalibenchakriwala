@@ -1,6 +1,8 @@
 
 import React from 'react';
 import AnimatedPage from '../components/AnimatedPage';
+import SEOHead from '../components/SEOHead';
+import { BreadcrumbSchema } from '../components/SchemaMarkup';
 import WhatsAppOrderButton from '../components/WhatsAppOrderButton';
 import { TestimonialsColumn, testimonials } from '../components/ui/testimonials-columns';
 import DatabaseWithRestApi from '../components/ui/database-with-rest-api';
@@ -9,8 +11,22 @@ import { ArrowRight, Star } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
 
 const Home: React.FC = () => {
+  const breadcrumbs = [
+    { name: 'Home', url: 'https://anjalibenchakriwala.com/' }
+  ];
+
   return (
     <AnimatedPage>
+      {/* SEO Head */}
+      <SEOHead
+        title="Buy Gujarati Snacks Online | Chakri, Bhakharwadi, Namkeen | Anjaliben Chakriwala"
+        description="Order authentic homemade Gujarati snacks online. Traditional Chakri, Bhakharwadi, Namkeen & Jain-friendly snacks with PAN India delivery. Fresh, preservative-free & delicious!"
+        keywords="gujarati snacks online, buy chakri online, bhakharwadi online, namkeen online india, jain snacks, traditional indian snacks, homemade gujarati farsan, kathiyawadi snacks delivery"
+        canonicalUrl="https://anjalibenchakriwala.com/"
+        ogImage="/images/Chakri.jpg"
+      />
+      <BreadcrumbSchema items={breadcrumbs} />
+
       <div className="max-w-7xl mx-auto px-4">
         {/* Hero Section */}
         <section className="min-h-[65vh] py-12 md:py-20 flex items-center overflow-hidden">
@@ -28,13 +44,13 @@ const Home: React.FC = () => {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="inline-block text-sm font-medium tracking-wider text-brand-primary uppercase mb-6"
               >
-                Handcrafted with Love
+                Handcrafted with Love | PAN India Delivery
               </motion.span>
 
-              {/* Main heading */}
+              {/* Main heading - H1 */}
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-light text-brand-text leading-tight mb-6">
-                The Authentic Taste of
-                <span className="block mt-2 font-medium text-brand-primary">Traditional Chakri</span>
+                Buy Authentic Gujarati Snacks Online
+                <span className="block mt-2 font-medium text-brand-primary">Traditional Chakri & Namkeen</span>
               </h1>
 
               {/* Divider line */}
@@ -54,6 +70,7 @@ const Home: React.FC = () => {
               >
                 Experience the crispy, savory delight of traditional namkeen,
                 made from generations-old recipes with the finest ingredients.
+                <strong> 100% vegetarian & Jain-friendly options available.</strong>
               </motion.p>
 
               {/* CTA Buttons */}
@@ -67,7 +84,7 @@ const Home: React.FC = () => {
                   to="/products"
                   className="group inline-flex items-center justify-center px-8 py-4 bg-brand-primary text-white font-medium rounded-lg hover:bg-opacity-90 transition-all duration-300"
                 >
-                  Explore Products
+                  Order Online Now
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </NavLink>
                 <NavLink
@@ -93,7 +110,7 @@ const Home: React.FC = () => {
                 <div className="relative overflow-hidden rounded-full bg-black/10 shadow-2xl">
                   <img
                     src="/chakri-image-2.png"
-                    alt="Golden spiral chakri snack on black background"
+                    alt="Authentic Gujarati Chakri - Traditional spiral snack from Anjaliben Chakriwala"
                     className="w-56 h-56 md:w-72 md:h-72 lg:w-80 lg:h-80 object-contain"
                   />
                 </div>
@@ -121,7 +138,7 @@ const Home: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.1 }}
               className="text-3xl md:text-4xl font-serif font-light text-brand-text mb-3"
             >
-              Our Signature Snacks
+              Our Signature Gujarati Snacks
             </motion.h2>
             <motion.div
               initial={{ width: 0 }}
@@ -136,34 +153,40 @@ const Home: React.FC = () => {
             {[
               {
                 name: 'Chakri',
-                description: 'Traditional spiral snack with perfect seasoning and irresistible crunch',
+                slug: 'chakri',
+                description: 'Traditional spiral snack with perfect seasoning and irresistible crunch. Jain-friendly.',
                 weightOptions: [
                   { weight: '200gm', price: '₹70' },
                   { weight: '400gm', price: '₹140' }
                 ],
                 ingredients: 'wheat flour, salt, chilly powder, ajwain, til, edible oil',
-                image: '/images/Chakri.jpg'
+                image: '/images/Chakri.jpg',
+                isJain: true
               },
               {
                 name: 'Bhakharwadi',
-                description: 'Classic Gujarati snack with sweet and spicy filling',
+                slug: 'bhakharwadi',
+                description: 'Classic Gujarati snack with sweet and spicy filling. Traditional recipe.',
                 weightOptions: [
                   { weight: '250gm', price: '₹80' },
                   { weight: '500gm', price: '₹150' }
                 ],
                 ingredients: 'maida, salt, haldi, dhana, mirch powder, garam masala, varyali, imily, jaggery, edible oil',
-                image: '/images/Bhakharwadi.jpg'
+                image: '/images/Bhakharwadi.jpg',
+                isJain: true
               },
               {
                 name: 'Sakarpara',
-                description: 'Sweet and crispy diamond-shaped treats with authentic Kathiyawadi taste',
+                slug: 'sakarpara',
+                description: 'Sweet and crispy diamond-shaped treats with authentic Kathiyawadi taste.',
                 weightOptions: [
                   { weight: '200gm', price: '₹80' },
                   { weight: '400gm', price: '₹150' }
                 ],
                 ingredients: 'wheat flour, maida, sugar, edible oil',
                 image: '/images/Sakarpara.jpg',
-                badge: '⭐ Kathiyawadi Special'
+                badge: '⭐ Kathiyawadi Special',
+                isJain: true
               }
             ].map((product, i) => (
               <motion.div
@@ -180,13 +203,19 @@ const Home: React.FC = () => {
                   <div className="relative mb-3 overflow-hidden rounded-lg">
                     <img
                       src={product.image}
-                      alt={product.name}
+                      alt={`${product.name} - Buy authentic Gujarati ${product.name} online at Anjaliben Chakriwala`}
                       className="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
                     />
-                    {/* Simple Badge */}
+                    {/* Badges */}
                     {product.badge && (
                       <div className="absolute top-2 right-2 bg-brand-primary/90 backdrop-blur-sm text-white px-2 py-0.5 rounded text-xs font-medium">
                         {product.badge}
+                      </div>
+                    )}
+                    {product.isJain && (
+                      <div className="absolute top-2 left-2 bg-green-600/90 backdrop-blur-sm text-white px-2 py-0.5 rounded text-xs font-medium">
+                        🌿 Jain Friendly
                       </div>
                     )}
                   </div>
@@ -219,15 +248,25 @@ const Home: React.FC = () => {
 
                     {/* View Details Button - Clean */}
                     <NavLink
-                      to="/products"
+                      to={`/products/${product.slug}`}
                       className="block w-full text-center px-4 py-2 bg-brand-primary text-white font-medium rounded-lg hover:bg-opacity-90 transition-all duration-300 text-sm"
                     >
-                      View Details
+                      View Details & Order
                     </NavLink>
                   </div>
                 </div>
               </motion.div>
             ))}
+          </div>
+
+          {/* View All Products CTA */}
+          <div className="text-center mt-10">
+            <NavLink
+              to="/products"
+              className="inline-flex items-center text-brand-primary font-medium hover:underline"
+            >
+              View All 9 Products <ArrowRight className="ml-2 h-4 w-4" />
+            </NavLink>
           </div>
         </section>
 

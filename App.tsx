@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter, Route, Routes, useLocation } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import './src/styles/globals.css';
 
@@ -7,12 +7,15 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import NoiseBackground from './components/NoiseBackground';
 import ScrollToTop from './components/ScrollToTop';
+import { OrganizationSchema, WebSiteSchema, LocalBusinessSchema } from './components/SchemaMarkup';
 
 import Home from './pages/Home';
 import About from './pages/About';
 import Products from './pages/Products';
+import ProductDetail from './pages/ProductDetail';
 import Gallery from './pages/Gallery';
 import Blog from './pages/Blog';
+import BlogPost from './pages/BlogPost';
 import Contact from './pages/Contact';
 
 const App: React.FC = () => {
@@ -20,6 +23,11 @@ const App: React.FC = () => {
 
   return (
     <div className="bg-brand-bg-light font-sans text-brand-text antialiased">
+      {/* Global Schema Markup */}
+      <OrganizationSchema />
+      <WebSiteSchema />
+      <LocalBusinessSchema />
+
       <NoiseBackground />
       <Header />
       <main className="relative z-10 min-h-screen px-4 py-24 sm:px-6 md:px-8 lg:py-32">
@@ -28,8 +36,10 @@ const App: React.FC = () => {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/products" element={<Products />} />
+            <Route path="/products/:productSlug" element={<ProductDetail />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </AnimatePresence>
@@ -40,10 +50,10 @@ const App: React.FC = () => {
 };
 
 const AppWrapper: React.FC = () => (
-  <HashRouter>
+  <BrowserRouter>
     <ScrollToTop />
     <App />
-  </HashRouter>
+  </BrowserRouter>
 );
 
 export default AppWrapper;

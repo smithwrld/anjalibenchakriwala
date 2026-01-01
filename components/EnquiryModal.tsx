@@ -13,7 +13,7 @@ const EnquiryModal: React.FC<EnquiryModalProps> = ({ isOpen, onClose, product })
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const [selectedWeight, setSelectedWeight] = useState('');
-  const phoneNumber = '916352711793'; // Target WhatsApp number
+  const phoneNumber = '918460078518'; // Target WhatsApp number
 
   useEffect(() => {
     if (isOpen && product) {
@@ -131,8 +131,8 @@ Please get in touch with me.`;
                           document.getElementById('weight-dropdown')?.classList.add('hidden');
                         }}
                         className={`px-5 py-3 cursor-pointer transition-colors duration-150 flex justify-between items-center ${selectedWeight === option.weight
-                            ? 'bg-brand-primary/10 text-brand-primary font-semibold'
-                            : 'text-brand-text hover:bg-gray-50'
+                          ? 'bg-brand-primary/10 text-brand-primary font-semibold'
+                          : 'text-brand-text hover:bg-gray-50'
                           }`}
                       >
                         <span>{option.weight}</span>
